@@ -7,6 +7,8 @@ echo	 "\e[93m		 ( SEKTOR VI )        \n";
 echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n";
 echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
 echo	 "\e[96m	        @bimo_nugraha				 \n";
+echo color("white","          Format Nomor 62*** \n");
+echo color("white","     Time  : ".date('[d-m-Y] [H:i:s]')."   \n");
 echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n";
 // function change(){
         $nama = nama();
