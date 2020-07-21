@@ -53,8 +53,8 @@ echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬�
         echo color("white","+] TOKEN ID : ".$token."\n\n");
         save("token.txt",$token);
         echo color("yellow","\n▬▬▬▬▬▬▬▬▬▬▬▬* AUTO CLAIM VOUCHER *▬▬▬▬▬▬▬▬▬▬▬▬");
-       echo "\n".color("white"," CLAIM VOUCHER 20K");
-        echo "\n".color("yellow"," Please wait. ");
+       echo "\n".color("white","🔓 CLAIM VOUCHER 1");
+        echo "\n".color("yellow","🔓 Please wait");
         for($a=1;$a<=3;$a++){
         echo color("green",".");
         sleep(30);
@@ -65,39 +65,30 @@ echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬�
         echo "\n".color("green","🔓 Message: ".$message);
         goto gofood;
         }else{
-        echo "\n".color("red","🔐 Message: ".$message);
-	      gocar:
-        echo "\n".color("green","# CLAIM VOUCHER 15K");
-        echo "\n".color("white","# Please Wait. ");
+        echo "\n".color("white"," Message: ".$message);
+	gocar:
+        echo "\n".color("white","NUL ");
+        echo "\n".color("white"," Skipp");
         for($a=1;$a<=3;$a++){
-        echo color("yellow",".");
-        sleep(20);
+        echo color("green",".");
+        sleep(0);
         }
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD2107"}');
         $message = fetch_value($code1,'"message":"','"');
         if(strpos($code1, 'Promo kamu sudah bisa dipakai.')){
-        echo "\n".color("green","🔓 Message: ".$message);
+        echo "\n".color("green","Message: ".$message);
         goto gofood;
         }else{
-        echo "\n".color("red","🔐 Message: ".$message);
+        echo "\n".color("green"," Message: ".$message);
         gofood:
-        echo "\n".color("yellow"," CLAIM VOUCHER 3");
-        echo "\n".color("white","Please Wait.");
+        echo "\n".color("white","NUL");
+        echo "\n".color("white"," Skipp");
         for($a=1;$a<=3;$a++){
-        echo color("yellow",".");
-        sleep(10);
-        }
-        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"PESANGOFOOD2107"}');
-        $message = fetch_value($code1,'"message":"','"');
-        echo "\n".color("white","🔓 Message: ".$message);
-        echo "\n".color("yellow"," CLAIM VOUCHER 4");
-        echo "\n".color("white","Please Wait.");
-        for($a=1;$a<=3;$a++){
-        echo color("white",".");
-        sleep(5);
+        echo color("green",".");
+        sleep(0);
         }
         sleep(15);
-        $boba09 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"PESANGOFOOD2107"}');
+        $boba09 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD2107"}');
         $messageboba09 = fetch_value($boba09,'"message":"','"');
         echo "\n".color("red","# Message: ".$messageboba09);
         sleep(3);
@@ -116,7 +107,7 @@ echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬�
         $voucher11 = getStr1('"title":"','",',$cekvoucher,"11");
         $voucher12 = getStr1('"title":"','",',$cekvoucher,"12");
         $voucher13 = getStr1('"title":"','",',$cekvoucher,"13");
-        echo "\n".color("blue","▶️ Total voucher ".$total." : ");
+        echo "\n".color("yellow","▶️ Total voucher ".$total." : ");
         echo "\n".color("yellow","                     1. ".$voucher1);
         echo "\n".color("yellow","                     2. ".$voucher2);
         echo "\n".color("yellow","                     3. ".$voucher3);
@@ -191,13 +182,13 @@ echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬�
          }else{
          echo color("red","-] OTP SALAH ");
          echo"\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n";
-         echo color("purple","!] MASUKIN NOMER ULANG\n");
-         goto ulang;
+         echo color("yellow","!] INPUT ULANG..\n");
+         goto otp;
          }
          }else{
          echo color("red","-] Nomor sudah terdaftar.");
          echo"\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n";
-         echo color("red","!] Coba Nomer fresh !!! \n");
+	 echo color("green"," masukin nomer fresh");
          goto ulang;
          }
 //  }
