@@ -6,10 +6,12 @@ echo "\n";
 echo	 "\e[93m		 ( SEKTOR VI )        \n";
 echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n";
 echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
+echo	 "\e[96m	        @bimo_nugraha				 \n";
+echo	 "\e[32;1m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n";
 // function change(){
         $nama = nama();
         $email = str_replace(" ", "", $nama) . mt_rand(100, 999);
-        echo color("green","📲▶️ Nomor : ");
+        echo color("yellow","▶️ Nomor : ");
         // $no = trim(fgets(STDIN));
         $nohp = trim(fgets(STDIN));
         $nohp = str_replace("62","62",$nohp);
@@ -36,32 +38,32 @@ echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
         $register = request("/v5/customers", null, $data);
         if(strpos($register, '"otp_token"')){
         $otptoken = getStr('"otp_token":"','"',$register);
-        echo color("white","📶▶️ OTP DIKIRIM ")."\n";
+        echo color("white","🔓 OTP DIKIRIM ")."\n";
         otp:
-        echo color("green","💬▶️ KODE OTP : ");
+        echo color("green","🔓 KODE OTP : ");
         $otp = trim(fgets(STDIN));
         $data1 = '{"client_name":"gojek:cons:android","data":{"otp":"' . $otp . '","otp_token":"' . $otptoken . '"},"client_secret":"83415d06-ec4e-11e6-a41b-6c40088ab51e"}';
         $verif = request("/v5/customers/phone/verify", null, $data1);
         if(strpos($verif, '"access_token"')){
-        echo color("Purple","✔️ SUCCESS \n");
+        echo color("Purple","BERHASIL \n");
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
         echo color("white","+] TOKEN ID : ".$token."\n\n");
         save("token.txt",$token);
-        echo color("red","\n▬▬▬▬▬▬▬▬▬▬▬▬* AUTO CLAIM VOUCHER *▬▬▬▬▬▬▬▬▬▬▬▬");
-       echo "\n".color("purple"," CLAIM VOUCHER 20K");
-        echo "\n".color("blue"," Please wait. ");
+        echo color("yellow","\n▬▬▬▬▬▬▬▬▬▬▬▬* AUTO CLAIM VOUCHER *▬▬▬▬▬▬▬▬▬▬▬▬");
+       echo "\n".color("white"," CLAIM VOUCHER 20K");
+        echo "\n".color("yellow"," Please wait. ");
         for($a=1;$a<=3;$a++){
-        echo color("purple",".");
+        echo color("green",".");
         sleep(30);
         }
        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD2107"}');
         $message = fetch_value($code1,'"message":"','"');
         if(strpos($code1, 'Promo kamu sudah bisa dipakai.')){
-        echo "\n".color("blue","🔓▶️ Message: ".$message);
+        echo "\n".color("green","🔓 Message: ".$message);
         goto gofood;
         }else{
-        echo "\n".color("red","🔐▶️ Message: ".$message);
+        echo "\n".color("red","🔐 Message: ".$message);
 	      gocar:
         echo "\n".color("green","# CLAIM VOUCHER 15K");
         echo "\n".color("white","# Please Wait. ");
@@ -72,20 +74,20 @@ echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD2107"}');
         $message = fetch_value($code1,'"message":"','"');
         if(strpos($code1, 'Promo kamu sudah bisa dipakai.')){
-        echo "\n".color("blue","🔓▶️ Message: ".$message);
+        echo "\n".color("green","🔓 Message: ".$message);
         goto gofood;
         }else{
-        echo "\n".color("red","🔐▶️ Message: ".$message);
+        echo "\n".color("red","🔐 Message: ".$message);
         gofood:
-        echo "\n".color("white"," CLAIM VOUCHER 3");
-        echo "\n".color("green","Please Wait.");
+        echo "\n".color("yellow"," CLAIM VOUCHER 3");
+        echo "\n".color("white","Please Wait.");
         for($a=1;$a<=3;$a++){
         echo color("yellow",".");
         sleep(10);
         }
-        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD2107"}');
+        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"PESANGOFOOD2107"}');
         $message = fetch_value($code1,'"message":"','"');
-        echo "\n".color("white","🔓▶️ Message: ".$message);
+        echo "\n".color("white","🔓 Message: ".$message);
         echo "\n".color("yellow"," CLAIM VOUCHER 4");
         echo "\n".color("white","Please Wait.");
         for($a=1;$a<=3;$a++){
@@ -93,9 +95,9 @@ echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
         sleep(5);
         }
         sleep(15);
-        $boba09 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD2107"}');
+        $boba09 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"PESANGOFOOD2107"}');
         $messageboba09 = fetch_value($boba09,'"message":"','"');
-        echo "\n".color("blue","# Message: ".$messageboba09);
+        echo "\n".color("red","# Message: ".$messageboba09);
         sleep(3);
         $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=13&page=1', $token);
         $total = fetch_value($cekvoucher,'"total_vouchers":',',');
@@ -112,7 +114,7 @@ echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
         $voucher11 = getStr1('"title":"','",',$cekvoucher,"11");
         $voucher12 = getStr1('"title":"','",',$cekvoucher,"12");
         $voucher13 = getStr1('"title":"','",',$cekvoucher,"13");
-        echo "\n".color("blue","🎫▶️ Total voucher ".$total." : ");
+        echo "\n".color("blue","▶️ Total voucher ".$total." : ");
         echo "\n".color("yellow","                     1. ".$voucher1);
         echo "\n".color("yellow","                     2. ".$voucher2);
         echo "\n".color("yellow","                     3. ".$voucher3);
@@ -166,7 +168,7 @@ echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
                                         $debug['text'] = $pesan;
                                         $debug['respon'] = json_decode($datas, true);
          setpin:
-         echo "\n".color("white","🔧▶️ SET PIN GOPAY ? !!!: Y/N ");
+         echo "\n".color("white","🔧 SET PIN GOPAY ? !!!: Y/N ");
          $pilih1 = trim(fgets(STDIN));
          if($pilih1 == "y" || $pilih1 == "Y"){
          //if($pilih1 == "y" && strpos($no, "628")){
@@ -191,9 +193,9 @@ echo	 "\e[96m         SCRIPT GOJEK 21 JULI 2020       \n";
          goto ulang;
          }
          }else{
-         echo color("red","-] Nomor udah kena colok.");
+         echo color("red","-] Nomor sudah terdaftar.");
          echo"\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n";
-         echo color("red","!] Coba Nomer yang perawan \n");
+         echo color("red","!] Coba Nomer fresh !!! \n");
          goto ulang;
          }
 //  }
